@@ -1,14 +1,8 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - Sanchit-Srivastava
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - Sanchit-Srivastava/contextuality_from_the_vacuum
+  - Sanchit-Srivastava/Quantum-chaos-signature

@@ -13,7 +13,7 @@ profile:
     <p>University of Waterloo</p>
     <p>Waterloo, Ontario, Canada</p>
 
-selected_papers: false
+selected_papers: true
 social: true # includes social icons at the bottom of the page
 
 announcements:
@@ -27,6 +27,4 @@ latest_posts:
   limit: 3
 ---
 
-**This website is currently under construction.**
-
-I am a Ph.D. student at the Institute for Quantum Computing, University of Waterloo. My research is focused on the intersection of quantum information and quantum foundations. I am co-supervised by Prof. Shohini Ghose and Prof. Robert Mann.
+I am a Ph.D. student at the [Institute for Quantum Computing](https://uwaterloo.ca/institute-for-quantum-computing/), University of Waterloo. My research is focused on the intersection of quantum information and quantum foundations. I am co-supervised by [Prof. Shohini Ghose](https://www.wlu.ca/academics/faculties/faculty-of-science/faculty-profiles/shohini-ghose/index.html) and [Prof. Robert Mann](https://uwaterloo.ca/physics-astronomy/profile/rbmann).

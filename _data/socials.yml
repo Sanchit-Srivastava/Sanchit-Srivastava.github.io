@@ -2,4 +2,6 @@
 # the socials will be displayed in the order they are defined here
 # for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
 email: sanchit.srivastava@uwaterloo.ca # your email address
-rss_icon: true # comment this line to hide the RSS icon
+google_scholar: Yx76Lj4AAAAJ # your Google Scholar ID
+orcid: 0000-0003-0826-8530 # your ORCID ID
+github: Sanchit-Srivastava # your GitHub username

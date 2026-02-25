@@ -178,6 +178,9 @@ layout: default
               {% elsif section_title == 'References' %}
                 {% assign entries = section_entries %}
                 {% include cv/references.liquid %}
+              {% elsif section_title == 'Teaching' %}
+                {% assign entries = section_entries %}
+                {% include cv/experience.liquid %}
               {% else %}
                 <!-- Generic section -->
                 {% for entry in section_entries %}

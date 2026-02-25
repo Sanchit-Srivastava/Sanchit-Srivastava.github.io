@@ -1,9 +1,11 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
+"PRR":
+  url: https://journals.aps.org/prresearch/
   color: "#00369f"
 
-"PhysRev":
-  url: https://journals.aps.org/
+"Sci. Rep.":
+  url: https://www.nature.com/srep/
+  color: "#c41e3a"
 
-"Vision":
+"Phys. Lett. A":
+  url: https://www.sciencedirect.com/journal/physics-letters-a
   color: "#009f36"
