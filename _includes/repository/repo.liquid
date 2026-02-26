@@ -1,47 +1,39 @@
-{% assign repo_url = include.repository | split: '/' %}
-{% if site.data.repositories.github_users contains repo_url.first %}
-  {% assign show_owner = false %}
+{% comment %}
+  GitHub-style repository card.
+  Expects: include.repository (hash with name, description, language)
+           OR include.repository (string like "owner/repo" for backward compat)
+{% endcomment %}
+
+{% if include.repository.name %}
+  {% assign repo_full = include.repository.name %}
+  {% assign repo_desc = include.repository.description %}
+  {% assign repo_lang = include.repository.language %}
 {% else %}
-  {% assign show_owner = true %}
+  {% assign repo_full = include.repository %}
+  {% assign repo_desc = "" %}
+  {% assign repo_lang = "" %}
 {% endif %}
 
-{% assign lang = site.lang | split: '-' | first %}
+{% assign repo_parts = repo_full | split: '/' %}
+{% assign repo_owner = repo_parts[0] %}
+{% assign repo_name = repo_parts[1] %}
 
-{% case lang %}
-  {% when 'pt' %}
-    {% assign lang = site.lang %}
-
-  {% when 'zh' %}
-    {% assign lang_last = site.lang | split: '-' | last %}
-    {% case lang_last %}
-      {% when 'cn', 'sg', 'my', 'hans' %}
-        {% assign lang = 'cn' %}
-      {% when 'tw', 'hk', 'mo', 'hant' %}
-        {% assign lang = 'zh-tw' %}
-    {% endcase %}
-
-    {% comment %} Add a new language using when... if needed {% endcomment %}
-    {% comment %} If you still encounter language-display issues, check the available locale codes in github-readme-stats (different from ISO-639 standard used in your website) {% endcomment %}
-    {% comment %} https://github.com/anuraghazra/github-readme-stats?tab=readme-ov-file#available-locales {% endcomment %}
-{% endcase %}
-
-{% if site.data.repositories.repo_description_lines_max %}
-  {% assign max_lines = site.data.repositories.repo_description_lines_max %}
-{% else %}
-  {% assign max_lines = 2 %}
-{% endif %}
-
-<div class="repo p-2 text-center">
-  <a href="https://github.com/{{ include.repository }}">
-    <img
-      class="only-light w-100"
-      alt="{{ include.repository }}"
-      src="{{ site.external_services.github_readme_stats_url }}/api/pin/?username={{ repo_url[0] }}&repo={{ repo_url[1] }}&theme={{ site.repo_theme_light }}&locale={{ lang }}&show_owner={{ show_owner }}&description_lines_count={{ max_lines }}"
-    >
-    <img
-      class="only-dark w-100"
-      alt="{{ include.repository }}"
-      src="{{ site.external_services.github_readme_stats_url }}/api/pin/?username={{ repo_url[0] }}&repo={{ repo_url[1] }}&theme={{ site.repo_theme_dark }}&locale={{ lang }}&show_owner={{ show_owner }}&description_lines_count={{ max_lines }}"
-    >
+<div class="repo-card-wrapper">
+  <a href="https://github.com/{{ repo_full }}" class="repo-card" target="_blank" rel="noopener noreferrer">
+    <div class="repo-card-header">
+      <i class="fa-brands fa-github repo-card-icon"></i>
+      <span class="repo-card-name">{{ repo_name }}</span>
+    </div>
+    {% if repo_desc != "" %}
+      <p class="repo-card-description">{{ repo_desc }}</p>
+    {% endif %}
+    {% if repo_lang != "" %}
+      <div class="repo-card-footer">
+        <span class="repo-card-language">
+          <span class="repo-card-language-dot" data-lang="{{ repo_lang | downcase }}"></span>
+          {{ repo_lang }}
+        </span>
+      </div>
+    {% endif %}
   </a>
 </div>
